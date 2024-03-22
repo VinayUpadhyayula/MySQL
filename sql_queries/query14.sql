@@ -1,0 +1,2 @@
+select pid, name as product_name ,(p.orig_price*discnt_rate) as "discount amount" from prod_discnt pd, products p where pd.discnt_category = p.discnt_category and 
+     p.orig_price*discnt_rate = (select MAX(p.orig_price*discnt_rate) from prod_discnt pd,products p where pd.discnt_category=p.discnt_category);
